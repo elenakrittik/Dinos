@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ExplosiveCan.png-23492fe2a549a3f903db8bd4f807faf7.stex"
+path="res://.import/Angular_Earth.png-9ac6cf4cc1ad2505ff97dc70d8d81e3d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ExplosiveCan.png"
-dest_files=[ "res://.import/ExplosiveCan.png-23492fe2a549a3f903db8bd4f807faf7.stex" ]
+source_file="res://assets/Objects/Angular_Earth.png"
+dest_files=[ "res://.import/Angular_Earth.png-9ac6cf4cc1ad2505ff97dc70d8d81e3d.stex" ]
 
 [params]
 

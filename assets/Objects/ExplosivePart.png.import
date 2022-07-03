@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Earth1.png-b55f2ce21539cd59dce9571af79f78de.stex"
+path="res://.import/ExplosivePart.png-a2ce71bfdd22ef59b761f84351641145.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Earth1.png"
-dest_files=[ "res://.import/Earth1.png-b55f2ce21539cd59dce9571af79f78de.stex" ]
+source_file="res://assets/Objects/ExplosivePart.png"
+dest_files=[ "res://.import/ExplosivePart.png-a2ce71bfdd22ef59b761f84351641145.stex" ]
 
 [params]
 

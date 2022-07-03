@@ -114,6 +114,7 @@ config/name="Flux Edge"
 run/main_scene="res://scenes/Menu.tscn"
 config/use_custom_user_dir=true
 config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 

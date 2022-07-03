@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Mcprod_Flush.mp3-a8904028835c08b6d5fd1a81a3e416a3.mp3str"
+
+[deps]
+
+source_file="res://assets/Music/Mcprod_Flush.mp3"
+dest_files=[ "res://.import/Mcprod_Flush.mp3-a8904028835c08b6d5fd1a81a3e416a3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

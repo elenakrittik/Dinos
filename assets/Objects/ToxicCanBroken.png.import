@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Spawnpoint.png-1e9868bda070702a5bf1a51054d0a79f.stex"
+path="res://.import/ToxicCanBroken.png-a1aac12f39238a79b15d45ff30b0a3ef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Spawnpoint.png"
-dest_files=[ "res://.import/Spawnpoint.png-1e9868bda070702a5bf1a51054d0a79f.stex" ]
+source_file="res://assets/Objects/ToxicCanBroken.png"
+dest_files=[ "res://.import/ToxicCanBroken.png-a1aac12f39238a79b15d45ff30b0a3ef.stex" ]
 
 [params]
 

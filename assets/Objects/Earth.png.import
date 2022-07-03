@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Angular_Earth.png-458c739ad0dcf5c5e00f23f7c7282c9d.stex"
+path="res://.import/Earth.png-53460553649b3f3df69bceb9a5f18023.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Angular_Earth.png"
-dest_files=[ "res://.import/Angular_Earth.png-458c739ad0dcf5c5e00f23f7c7282c9d.stex" ]
+source_file="res://assets/Objects/Earth.png"
+dest_files=[ "res://.import/Earth.png-53460553649b3f3df69bceb9a5f18023.stex" ]
 
 [params]
 

@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/BackgroundEarth.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=3]
 [ext_resource path="res://assets/akashi.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://assets/MCprod_Rumpure.mp3" type="AudioStream" id=5]
+[ext_resource path="res://assets/Music/MCprod_Rumpure.mp3" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=3]
 size = 32

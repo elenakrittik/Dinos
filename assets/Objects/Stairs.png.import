@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/AidKit.png-3fdd7b660980b1b9980eee1d5c9c2897.stex"
+path="res://.import/Stairs.png-d9a7f48856878267c7472d393880894c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/AidKit.png"
-dest_files=[ "res://.import/AidKit.png-3fdd7b660980b1b9980eee1d5c9c2897.stex" ]
+source_file="res://assets/Objects/Stairs.png"
+dest_files=[ "res://.import/Stairs.png-d9a7f48856878267c7472d393880894c.stex" ]
 
 [params]
 

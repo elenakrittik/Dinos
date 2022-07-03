@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ToxicCanBroken.png-c983b46c0e8ad04725329a05952e36b1.stex"
+path="res://.import/Earth.svg-cc246a1c0abbe6ccd353b02a3205b814.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ToxicCanBroken.png"
-dest_files=[ "res://.import/ToxicCanBroken.png-c983b46c0e8ad04725329a05952e36b1.stex" ]
+source_file="res://assets/Objects/Earth.svg"
+dest_files=[ "res://.import/Earth.svg-cc246a1c0abbe6ccd353b02a3205b814.stex" ]
 
 [params]
 

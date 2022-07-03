@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ExplosiveCanBroken.png-7620fb801c603d182f39d75542d3a6b1.stex"
+path="res://.import/ExplosiveCanBroken.png-1c3ee69736bc4147f66da9c7ae7effa3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ExplosiveCanBroken.png"
-dest_files=[ "res://.import/ExplosiveCanBroken.png-7620fb801c603d182f39d75542d3a6b1.stex" ]
+source_file="res://assets/Objects/ExplosiveCanBroken.png"
+dest_files=[ "res://.import/ExplosiveCanBroken.png-1c3ee69736bc4147f66da9c7ae7effa3.stex" ]
 
 [params]
 

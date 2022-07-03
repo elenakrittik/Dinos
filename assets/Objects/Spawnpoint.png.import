@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Earth.png-2b5da6237118ec4ccc71443a54ca3f64.stex"
+path="res://.import/Spawnpoint.png-300b2c56c2947444af65a0529c900be6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Earth.png"
-dest_files=[ "res://.import/Earth.png-2b5da6237118ec4ccc71443a54ca3f64.stex" ]
+source_file="res://assets/Objects/Spawnpoint.png"
+dest_files=[ "res://.import/Spawnpoint.png-300b2c56c2947444af65a0529c900be6.stex" ]
 
 [params]
 

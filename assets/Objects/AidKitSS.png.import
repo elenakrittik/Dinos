@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ToxicCan.png-ae1ac3910ae93083472ca29bf445973a.stex"
+path="res://.import/AidKitSS.png-a810d73401de2b4af4f0075d4892e702.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ToxicCan.png"
-dest_files=[ "res://.import/ToxicCan.png-ae1ac3910ae93083472ca29bf445973a.stex" ]
+source_file="res://assets/Objects/AidKitSS.png"
+dest_files=[ "res://.import/AidKitSS.png-a810d73401de2b4af4f0075d4892e702.stex" ]
 
 [params]
 

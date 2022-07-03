@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Mcprod_Koans.mp3-1692460e7b6e0d98d47a49fe78b477ae.mp3str"
+
+[deps]
+
+source_file="res://assets/Music/Mcprod_Koans.mp3"
+dest_files=[ "res://.import/Mcprod_Koans.mp3-1692460e7b6e0d98d47a49fe78b477ae.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
