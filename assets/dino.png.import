@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/edit.png-5f81715ab2833e480257b9a0702c0ed1.stex"
+path="res://.import/dino.png-66c5335947261999ffd188b9c2301b2b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/edit.png"
-dest_files=[ "res://.import/edit.png-5f81715ab2833e480257b9a0702c0ed1.stex" ]
+source_file="res://assets/dino.png"
+dest_files=[ "res://.import/dino.png-66c5335947261999ffd188b9c2301b2b.stex" ]
 
 [params]
 

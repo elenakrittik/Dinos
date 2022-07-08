@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/BackgroundEarth.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=3]
@@ -28,6 +28,14 @@ font_data = ExtResource( 4 )
 [sub_resource type="StyleBoxEmpty" id=10]
 
 [sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="DynamicFont" id=12]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -75,7 +83,18 @@ margin_bottom = 115.0
 custom_fonts/font = SubResource( 9 )
 custom_styles/hover = SubResource( 10 )
 custom_styles/focus = SubResource( 11 )
-text = "Editor (Alpha)"
+text = "Editor (Beta)"
+flat = true
+
+[node name="MultiplayerButton" type="Button" parent="."]
+margin_left = -165.0
+margin_top = -113.0
+margin_right = 165.0
+margin_bottom = -71.0
+custom_fonts/font = SubResource( 12 )
+custom_styles/hover = SubResource( 13 )
+custom_styles/focus = SubResource( 14 )
+text = "Multiplayer (Alpha)"
 flat = true
 
 [node name="PlayButton" type="Button" parent="."]
@@ -99,4 +118,5 @@ autoplay = true
 [connection signal="pressed" from="AboutButton" to="." method="_on_About_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="EditorButton" to="." method="_on_EditorButton_pressed"]
+[connection signal="pressed" from="MultiplayerButton" to="." method="_on_MultiplayerButton_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_Play_Button_pressed"]

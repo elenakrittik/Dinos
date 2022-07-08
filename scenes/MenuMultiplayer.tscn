@@ -1,0 +1,104 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/akashi.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/BackgroundEarth.png" type="Texture" id=2]
+[ext_resource path="res://scripts/MenuMultiplayer.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.313726, 0.129412, 0.129412, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[node name="MenuMultiplayer" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="Sprite" type="Sprite" parent="Camera2D"]
+texture = ExtResource( 2 )
+
+[node name="ConnectButton" type="Button" parent="."]
+margin_left = 47.0
+margin_top = -21.0
+margin_right = 196.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+text = "Connect"
+flat = true
+
+[node name="HostButton" type="Button" parent="."]
+margin_left = -133.0
+margin_top = -21.0
+margin_right = -44.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+text = "Host"
+flat = true
+
+[node name="IPAddrOutput" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -513.0
+margin_top = 268.0
+margin_right = -102.0
+margin_bottom = 303.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 6 )
+
+[node name="IPAddrInput" type="LineEdit" parent="."]
+visible = false
+margin_left = -112.0
+margin_top = -21.0
+margin_right = 112.0
+margin_bottom = 21.0
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+placeholder_text = "Enter IP address"
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = -512.0
+margin_top = -304.0
+margin_right = -417.0
+margin_bottom = -262.0
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+text = "Back"
+flat = true
+
+[connection signal="pressed" from="ConnectButton" to="." method="_on_ConnectButton_pressed"]
+[connection signal="pressed" from="HostButton" to="." method="_on_HostButton_pressed"]
+[connection signal="text_entered" from="IPAddrInput" to="." method="_on_IPAddrInput_text_entered"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

@@ -1,6 +1,6 @@
 extends Node;
 
-var game = preload("res://scenes/Game.tscn");
+var game = load("res://scenes/Game.tscn");
 var xxx_lvl_path: String;
 
 func _on_button_pressed():

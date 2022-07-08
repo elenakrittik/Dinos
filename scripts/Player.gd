@@ -15,9 +15,12 @@ var stairs: Dictionary = {};
 var bullet_scene = preload("res://scenes/Dynamic/Bullet.tscn");
 var health: int = 100;
 var menu = load("res://scenes/Menu.tscn");
+var shooted: int = -99;
+var maporigin: Vector2;
 
 func _ready():
 	position = load_level(GlobalVars.xxx_lvl_path);
+	maporigin = position;
 	
 	var font = DynamicFont.new();
 	font.font_data = preload("res://assets/akashi.ttf");
@@ -27,12 +30,18 @@ func _ready():
 	
 	$CanvasLayer/Ammo.bbcode_enabled = true;
 	$CanvasLayer/Health.bbcode_enabled = true;
+	
+	if GlobalVars.HOST:
+		get_parent().do_map_sync();
 
 func _process(_delta):
 	if health == 0:
 		get_tree().change_scene_to(menu);
 
 func _physics_process(delta):
+	if get_parent().name == "MultiplayerGame":
+		get_parent().dosync();
+	shooted = -99;
 	if Input.is_action_pressed("shoot"):
 		if shoot_frames == 0:
 			if ammo > 0:
@@ -40,7 +49,7 @@ func _physics_process(delta):
 				shoot_frames = 7;
 				
 				var bullet = bullet_scene.instance();
-				if $AnimatedSprite.animation == "run_right":
+				if $AnimatedSprite.animation in ["run_right", "idle_right"]:
 					bullet.position.x = $AnimatedSprite.position.x + 20;
 				else:
 					bullet.position.x = $AnimatedSprite.position.x - 20;
@@ -50,7 +59,9 @@ func _physics_process(delta):
 				bullet.randomize_y_shift();
 				add_child(bullet);
 				
-				$Camera2D.shake(1, 1)
+				shooted = bullet.y_shift;
+				
+				$Camera2D.shake(1, 1);
 		else:
 			shoot_frames -= 1;
 	
@@ -82,8 +93,11 @@ func _physics_process(delta):
 		$AnimatedSprite.play("run_right");
 	
 	if !(Input.is_action_pressed("right") or Input.is_action_pressed("left")):
-		$AnimatedSprite.frame = 1;
-		$AnimatedSprite.stop();
+		if $AnimatedSprite.animation == "run_left":
+			$AnimatedSprite.play("idle_left");
+		
+		if $AnimatedSprite.animation == "run_right":
+			$AnimatedSprite.play("idle_right");
 	
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
@@ -143,6 +157,9 @@ func load_level(path) -> Vector2:
 	get_parent().call_deferred("add_child", lvl);
 	lvl.loader();
 	return lvl.xxx_player_startpoint;
+
+func xxx_process_destroy():
+	deal_damage(10);
 
 func is_on_stairs():
 	for x in stairs.keys():

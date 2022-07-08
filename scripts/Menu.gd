@@ -81,3 +81,6 @@ func _on_Back_pressed():
 
 func _on_EditorButton_pressed():
 	get_tree().change_scene("res://scenes/EditorSelector.tscn");
+
+func _on_MultiplayerButton_pressed():
+	get_tree().change_scene("res://scenes/MenuMultiplayer.tscn");

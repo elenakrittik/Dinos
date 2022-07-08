@@ -15,14 +15,15 @@ var lvlname: String;
 #onready var layout: Sprite = $ViewCenter/Camera2D/CanvasLayer/Layout;
 #var panel_rect: Rect2 = Rect2(Vector2(0, 480), Vector2(layout.get_rect().size.x, layout.size.y));
 
-var earthtex = preload("res://assets/Earth.png");
-var earth1tex = preload("res://assets/Earth1.png");
-var explosivecantex = preload("res://assets/ExplosiveCan.png");
-var explosivecanbrokentex = preload("res://assets/ExplosiveCanBroken.png");
-var stairstex = preload("res://assets/Stairs.png");
-var toxiccantex = preload("res://assets/ToxicCan.png");
-var toxiccanbrokentex = preload("res://assets/ToxicCanBroken.png");
-var spawnpointtex = preload("res://assets/Spawnpoint.png");
+var earthtex = preload("res://assets/Objects/Earth.png");
+var earth1tex = preload("res://assets/Objects/Earth1.png");
+var explosivecantex = preload("res://assets/Objects/ExplosiveCan.png");
+var explosivecanbrokentex = preload("res://assets/Objects/ExplosiveCanBroken.png");
+var stairstex = preload("res://assets/Objects/Stairs.png");
+var toxiccantex = preload("res://assets/Objects/ToxicCan.png");
+var toxiccanbrokentex = preload("res://assets/Objects/ToxicCanBroken.png");
+var spawnpointtex = preload("res://assets/Objects/Spawnpoint.png");
+var p2spawnpointtex = preload("res://assets/Objects/Spawnpoint2.png");
 var autosave: Timer;
 var menu = preload("res://scenes/Menu.tscn");
 
@@ -40,6 +41,13 @@ func _ready():
 			"cell": [lvldat['startpoint']['x'], lvldat['startpoint']['y']]
 		}
 		place_block(dd, false)
+		
+		if lvldat.get("p2spawnpoint"):
+			dd = {
+				"type": "p2spawnpoint",
+				"cell": [lvldat['p2startpoint']['x'], lvldat['p2startpoint']['y']]
+			}
+			place_block(dd, false)
 	
 	autosave = Timer.new();
 	autosave.wait_time = 60.0;
@@ -229,6 +237,12 @@ func _on_SaveButton_pressed():
 					"y": (obj.position.y + 16) / 32
 				};
 				do_continue = true;
+			p2spawnpointtex:
+				data['p2startpoint'] = {
+					"x": (obj.position.x + 16) / 32,
+					"y": (obj.position.y + 16) / 32
+				}
+				do_continue = true;
 			_:
 				do_continue = true;
 		
@@ -334,6 +348,9 @@ func place_block(obj: Dictionary, calc: bool = true):
 			"spawnpoint":
 				tile.texture = spawnpointtex;
 				tile.name = "spawnpoint_%s";
+			"p2spawnpoint":
+				tile.texture = p2spawnpointtex;
+				tile.name = "p2spawnpoint_%s";
 			_:
 				return;
 		
@@ -422,6 +439,9 @@ func place_block(obj: Dictionary, calc: bool = true):
 			"spawnpoint":
 				tile.texture = spawnpointtex;
 				tile.name = "spawnpoint_%s";
+			"spawnpoint2":
+				tile.texture = p2spawnpointtex;
+				tile.name = "p2spawnpoint_%s";
 			_:
 				return;
 		
@@ -450,3 +470,8 @@ func place_block(obj: Dictionary, calc: bool = true):
 		#	current_tile_line.default_color = Color(255, 211, 0);
 		#	current_tile_line.width = 2;
 		#	add_child(current_tile_line);
+
+
+func _on_Spawnpoint2Button_pressed():
+	selected_tile = "p2spawnpoint";
+	allow_put = false;

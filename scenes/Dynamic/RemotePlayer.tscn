@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/dinoreversed.png" type="Texture" id=1]
 [ext_resource path="res://assets/dino.png" type="Texture" id=2]
-[ext_resource path="res://scripts/Player.gd" type="Script" id=3]
+[ext_resource path="res://scripts/RemotePlayer.gd" type="Script" id=3]
 [ext_resource path="res://assets/Music/Mcprod_Koans.mp3" type="AudioStream" id=4]
 
 [sub_resource type="AtlasTexture" id=6]
@@ -24,26 +24,6 @@ region = Rect2( 96, 0, 48, 48 )
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 144, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=22]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 960, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=23]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1008, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=24]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1056, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=25]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1104, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=10]
 flags = 4
@@ -105,16 +85,31 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 912, 0, 48, 48 )
 
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 960, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1008, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1056, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1104, 0, 48, 48 )
+
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
 "name": "idle_right",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
-"loop": true,
-"name": "idle_left",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
@@ -126,12 +121,17 @@ animations = [ {
 "loop": true,
 "name": "run_left",
 "speed": 10.0
+}, {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"loop": true,
+"name": "idle_left",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14, 16 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="RemotePlayer" type="KinematicBody2D"]
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -152,6 +152,3 @@ shape = SubResource( 1 )
 stream = ExtResource( 4 )
 volume_db = -20.0
 autoplay = true
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_exited"]

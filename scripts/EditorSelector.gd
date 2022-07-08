@@ -1,6 +1,6 @@
 extends Node2D;
 
-var game = preload("res://scenes/Game.tscn");
+var game = load("res://scenes/Game.tscn");
 var editor = preload("res://scenes/Editor.tscn");
 #var editor_selector = load("res://scenes/EditorSelector.tscn");
 var menu = preload("res://scenes/Menu.tscn");
