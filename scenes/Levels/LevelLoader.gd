@@ -22,6 +22,7 @@ func loader():
 	file.close();
 	
 	xxx_player_startpoint = Vector2(data['startpoint']['x'] * 32, data['startpoint']['y'] * 32);
+	poss[1] = xxx_player_startpoint;
 	
 	if data.get("p2startpoint"):
 		poss[2] = Vector2(data['p2startpoint']['x'] * 32, data['p2startpoint']['y'] * 32);
@@ -72,4 +73,8 @@ func get_player_position(player):
 	#var aa = Vector2(xxx_player_startpoint.x + (32 * player), xxx_player_startpoint.y);
 	#print(aa)
 	#return aa;
-	return poss[player];
+	#return poss[player];
+	if GlobalVars.HOST:
+		return poss[2];
+	else:
+		return poss[1];

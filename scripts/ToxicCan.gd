@@ -20,13 +20,13 @@ func xxx_process_destroy():
 	get_tree().root.get_child(1).get_child(1).add_child(instance);
 	
 	for player in ps_high:
-		player.health -= 50;
+		player.deal_damage(50);
 	
 	for player in ps_medium:
-		player.health -= 25;
+		player.deal_damage(25);
 	
 	for player in ps_small:
-		player.health -= 10;
+		player.deal_damage(10);
 	
 	var camera: Camera2D = get_parent().xxx_player.get_node("Camera2D");
 	
