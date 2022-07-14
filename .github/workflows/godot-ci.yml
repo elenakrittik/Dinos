@@ -23,6 +23,7 @@ jobs:
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
+          mkdir $EXPORT_NAME
           cd $EXPORT_NAME
           godot -v --export "Windows" ../build/windows/$EXPORT_NAME.exe
       - name: Upload Artifact
@@ -48,6 +49,7 @@ jobs:
       - name: Linux Build
         run: |
           mkdir -v -p build/linux
+          mkdir $EXPORT_NAME
           cd $EXPORT_NAME
           godot -v --export "Linux" ../build/linux/$EXPORT_NAME.x86_64
       - name: Upload Artifact
