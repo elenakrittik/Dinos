@@ -16,9 +16,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           lfs: true
-      - name: Print
-        run: |
-          ls
       - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/templates
@@ -26,9 +23,7 @@ jobs:
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
-          mkdir $EXPORT_NAME
-          cd $EXPORT_NAME
-          godot -v --export "Windows" ../build/windows/$EXPORT_NAME.exe
+          godot -v --export "Windows" build/windows/$EXPORT_NAME.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
@@ -52,9 +47,7 @@ jobs:
       - name: Linux Build
         run: |
           mkdir -v -p build/linux
-          mkdir $EXPORT_NAME
-          cd $EXPORT_NAME
-          godot -v --export "Linux" ../build/linux/$EXPORT_NAME.x86_64
+          godot -v --export "Linux" build/linux/$EXPORT_NAME.x86_64
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
