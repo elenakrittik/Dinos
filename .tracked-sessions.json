@@ -1,0 +1,58 @@
+[
+  {
+    "session_name": "Session #1",
+    "elapsed_time": 2343,
+    "started_at": 1657795261,
+    "stopped_at": 1657797604,
+    "sections": [
+      {
+        "view": "2D",
+        "elapsed_time": 6,
+        "started_at": 1657795261,
+        "stopped_at": 1657795267
+      },
+      {
+        "view": "Script",
+        "elapsed_time": 19,
+        "started_at": 1657795267,
+        "stopped_at": 1657795286
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 33,
+        "started_at": 1657795286,
+        "stopped_at": 1657795319
+      },
+      {
+        "view": "Script",
+        "elapsed_time": 669,
+        "started_at": 1657795319,
+        "stopped_at": 1657795988
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 7,
+        "started_at": 1657795988,
+        "stopped_at": 1657795995
+      },
+      {
+        "view": "Script",
+        "elapsed_time": 549,
+        "started_at": 1657795995,
+        "stopped_at": 1657796544
+      },
+      {
+        "view": "2D",
+        "elapsed_time": 2,
+        "started_at": 1657796544,
+        "stopped_at": 1657796546
+      },
+      {
+        "view": "Script",
+        "elapsed_time": 1058,
+        "started_at": 1657796546,
+        "stopped_at": 1657797604
+      }
+    ]
+  }
+]
