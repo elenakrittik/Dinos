@@ -7,6 +7,8 @@ env:
 
 jobs:
   export-windows:
+    # We don't want to build artifacts for pull requests
+    if: github.event_name == 'push' && github.event.pull_request.head.repo.full_name == github.repository
     name: Windows Export
     runs-on: ubuntu-20.04
     container:
@@ -31,6 +33,7 @@ jobs:
           path: build/windows
 
   export-linux:
+    if: github.event_name == 'push' && github.event.pull_request.head.repo.full_name == github.repository
     name: Linux Export
     runs-on: ubuntu-20.04
     container:
