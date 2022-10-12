@@ -16,7 +16,16 @@ var bullet_scene = preload("res://scenes/Dynamic/Bullet.tscn");
 var health: int = 100;
 var menu = load("res://scenes/Menu.tscn");
 var shooted: int = -99;
+var mobile_joystick_texture = preload("res://assets/UI/mobile_joystick_circle.png");
+var mobile_joystick_circle_texture = preload("res://assets/UI/mobile_joystick_circle_small.png");
+var mobile_button_jump_texture = preload("res://assets/UI/mobile_button_jump.png");
 var maporigin: Vector2;
+var mobile_joystick: TouchScreenButton;
+var mobile_joystick_circle: Sprite;
+var mobile_button_jump: TouchScreenButton;
+var IS_MOBILE: bool = true;#OS.get_name() == "Android";
+var mobile_movement: Vector2;
+var mobile_jump: bool = false;
 
 func _ready():
 	position = load_level(GlobalVars.xxx_lvl_path);
@@ -33,9 +42,35 @@ func _ready():
 	
 	if GlobalVars.HOST:
 		get_parent().do_map_sync();
+	
+	if IS_MOBILE:
+		mobile_joystick = TouchScreenButton.new();
+		mobile_joystick.name = "MobileJoystick";
+		mobile_joystick.normal = mobile_joystick_texture;
+		mobile_joystick.position = Vector2(100, 400);
+		mobile_joystick.scale = Vector2(0.5, 0.5);
+		mobile_joystick.shape = CircleShape2D.new();
+		mobile_joystick.shape.radius = 125;
+		
+		mobile_joystick_circle = Sprite.new();
+		mobile_joystick_circle.name = "MobileJoystickCircle";
+		mobile_joystick_circle.texture = mobile_joystick_circle_texture;
+		mobile_joystick_circle.position = Vector2(100 + 64, 400 + 64);
+		mobile_joystick_circle.scale = Vector2(0.25, 0.25);
+		
+		mobile_button_jump = TouchScreenButton.new();
+		mobile_button_jump.name = "MobileButtonJump";
+		mobile_button_jump.normal = mobile_button_jump_texture;
+		mobile_button_jump.position = Vector2(850, 175);
+		mobile_button_jump.scale = Vector2(3, 3);
+		
+		$CanvasLayer.add_child(mobile_joystick);
+		$CanvasLayer.add_child(mobile_joystick_circle);
+		$CanvasLayer.add_child(mobile_button_jump);
 
 func _process(_delta):
 	if health == 0:
+		# warning-ignore:return_value_discarded
 		get_tree().change_scene_to(menu);
 
 func _physics_process(delta):
@@ -84,26 +119,32 @@ func _physics_process(delta):
 	
 	velocity.x = 0;
 	
-	if Input.is_action_pressed("left"):
+	if Input.is_action_pressed("left") or (mobile_movement.x > 0.5 and mobile_movement.x != 0):
 		velocity.x -= hspeed;
 		$AnimatedSprite.play("run_left");
 	
-	if Input.is_action_pressed("right"):
+	if Input.is_action_pressed("right") or (mobile_movement.x < 0.5 and mobile_movement.x != 0):
 		velocity.x += hspeed;
 		$AnimatedSprite.play("run_right");
 	
-	if !(Input.is_action_pressed("right") or Input.is_action_pressed("left")):
+	if !(
+		Input.is_action_pressed("right")
+		or Input.is_action_pressed("left")
+		or mobile_movement.x != 0
+		or mobile_movement.y != 0
+	):
 		if $AnimatedSprite.animation == "run_left":
 			$AnimatedSprite.play("idle_left");
 		
 		if $AnimatedSprite.animation == "run_right":
 			$AnimatedSprite.play("idle_right");
 	
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") or mobile_jump:
+		mobile_jump = false;
 		if is_on_floor():
 			velocity.y += jump_speed;
 	
-	if Input.is_action_pressed("up"):
+	if Input.is_action_pressed("up") or mobile_movement.y > 0.5:
 		if is_on_stairs():
 			velocity.y += vspeed;
 	
@@ -166,8 +207,30 @@ func is_on_stairs():
 		if stairs.get(x) == true:
 			return true;
 		else:
+			# warning-ignore:return_value_discarded
 			stairs.erase(x);
 	return false;
+
+func _input(event):
+	if event is InputEventScreenTouch:
+		if not event.pressed:
+			mobile_movement = Vector2.ZERO;
+			print("abcdefg")
+	
+	if (event is InputEventScreenTouch or event is InputEventScreenDrag) and IS_MOBILE:
+		if $CanvasLayer/MobileJoystick.is_pressed():
+			# TODO: Prefer dynamic calculation
+			var joystick_texture_center: Vector2 = $CanvasLayer/MobileJoystick.position + Vector2(128, 128);
+			mobile_movement = (event.position - joystick_texture_center)
+			# fuckin' random godot tutorials :rofl:
+			mobile_movement.x /= -128;
+			mobile_movement.y /= -128;
+			
+			mobile_joystick_circle.position = event.position;
+			print(mobile_movement)
+		
+		if $CanvasLayer/MobileButtonJump.is_pressed():
+			mobile_jump = true;
 
 func _on_area_entered(area):
 	if area.name.begins_with("stairs"):
