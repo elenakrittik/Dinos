@@ -19,13 +19,18 @@ var shooted: int = -99;
 var mobile_joystick_texture = preload("res://assets/UI/mobile_joystick_circle.png");
 var mobile_joystick_circle_texture = preload("res://assets/UI/mobile_joystick_circle_small.png");
 var mobile_button_jump_texture = preload("res://assets/UI/mobile_button_jump.png");
+var mobile_button_reload_ammo_texture = preload("res://assets/UI/mobile_button_reload_ammo.png");
 var maporigin: Vector2;
 var mobile_joystick: TouchScreenButton;
 var mobile_joystick_circle: Sprite;
 var mobile_button_jump: TouchScreenButton;
+var mobile_button_reload_ammo: TouchScreenButton;
 var IS_MOBILE: bool = true;#OS.get_name() == "Android";
+var IS_DESKTOP: bool = OS.get_name() in ["Windows", "X11"]
 var mobile_movement: Vector2;
 var mobile_jump: bool = false;
+var mobile_reload_ammo: bool = false;
+var mobile_shoot: bool = false;
 
 func _ready():
 	position = load_level(GlobalVars.xxx_lvl_path);
@@ -62,11 +67,16 @@ func _ready():
 		mobile_button_jump.name = "MobileButtonJump";
 		mobile_button_jump.normal = mobile_button_jump_texture;
 		mobile_button_jump.position = Vector2(850, 175);
-		mobile_button_jump.scale = Vector2(3, 3);
+		
+		mobile_button_reload_ammo = TouchScreenButton.new();
+		mobile_button_reload_ammo.name = "MobileButtonReloadAmmo";
+		mobile_button_reload_ammo.normal = mobile_button_reload_ammo_texture;
+		mobile_button_reload_ammo.position = Vector2(675, 250);
 		
 		$CanvasLayer.add_child(mobile_joystick);
 		$CanvasLayer.add_child(mobile_joystick_circle);
 		$CanvasLayer.add_child(mobile_button_jump);
+		$CanvasLayer.add_child(mobile_button_reload_ammo);
 
 func _process(_delta):
 	if health == 0:
@@ -77,7 +87,10 @@ func _physics_process(delta):
 	if get_parent().name == "MultiplayerGame":
 		get_parent().dosync();
 	shooted = -99;
-	if Input.is_action_pressed("shoot"):
+	if (
+		(Input.is_action_pressed("shoot") and IS_DESKTOP)
+		or (mobile_shoot and IS_MOBILE)
+	):
 		if shoot_frames == 0:
 			if ammo > 0:
 				ammo -= 1;
@@ -100,7 +113,10 @@ func _physics_process(delta):
 		else:
 			shoot_frames -= 1;
 	
-	if Input.is_action_just_pressed("reload_ammo"):
+	if Input.is_action_just_pressed("reload_ammo") or mobile_reload_ammo:
+		if mobile_reload_ammo:
+			mobile_reload_ammo = false;
+		
 		if !do_reload_ammo:
 			do_reload_ammo = true;
 	
@@ -144,7 +160,7 @@ func _physics_process(delta):
 		if is_on_floor():
 			velocity.y += jump_speed;
 	
-	if Input.is_action_pressed("up") or mobile_movement.y > 0.5:
+	if Input.is_action_pressed("up") or (mobile_movement.y > 0.5 and mobile_movement.y != 0):
 		if is_on_stairs():
 			velocity.y += vspeed;
 	
@@ -231,6 +247,9 @@ func _input(event):
 		
 		if $CanvasLayer/MobileButtonJump.is_pressed():
 			mobile_jump = true;
+		
+		if $CanvasLayer/MobileButtonReloadAmmo.is_pressed():
+			mobile_reload_ammo = true;
 
 func _on_area_entered(area):
 	if area.name.begins_with("stairs"):
