@@ -1,5 +1,8 @@
 name: "godot-ci export"
-on: push
+on:
+  push:
+    branches:
+      - master
 
 env:
   GODOT_VERSION: 3.4.4
@@ -7,8 +10,6 @@ env:
 
 jobs:
   export-windows:
-    # We don't want to build artifacts for pull requests
-    if: github.event_name == 'push' && !(github.event.pull_request)
     name: Windows Export
     runs-on: ubuntu-20.04
     container:
@@ -33,7 +34,6 @@ jobs:
           path: build/windows
 
   export-linux:
-    if: github.event_name == 'push' && !(github.event.pull_request)
     name: Linux Export
     runs-on: ubuntu-20.04
     container:
