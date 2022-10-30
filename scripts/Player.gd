@@ -25,7 +25,7 @@ var mobile_joystick: TouchScreenButton;
 var mobile_joystick_circle: Sprite;
 var mobile_button_jump: TouchScreenButton;
 var mobile_button_reload_ammo: TouchScreenButton;
-var IS_MOBILE: bool = true;#OS.get_name() == "Android";
+var IS_MOBILE: bool = OS.get_name() == "Android";
 var IS_DESKTOP: bool = OS.get_name() in ["Windows", "X11"]
 var mobile_movement: Vector2;
 var mobile_jump: bool = false;
@@ -234,6 +234,14 @@ func _input(event):
 			print("abcdefg")
 	
 	if (event is InputEventScreenTouch or event is InputEventScreenDrag) and IS_MOBILE:
+		if $CanvasLayer/MobileButtonJump.is_pressed():
+			mobile_jump = true;
+			return;
+			
+		if $CanvasLayer/MobileButtonReloadAmmo.is_pressed():
+			mobile_reload_ammo = true;
+			return;
+		
 		if $CanvasLayer/MobileJoystick.is_pressed():
 			# TODO: Prefer dynamic calculation
 			var joystick_texture_center: Vector2 = $CanvasLayer/MobileJoystick.position + Vector2(128, 128);
@@ -243,13 +251,6 @@ func _input(event):
 			mobile_movement.y /= -128;
 			
 			mobile_joystick_circle.position = event.position;
-			print(mobile_movement)
-		
-		if $CanvasLayer/MobileButtonJump.is_pressed():
-			mobile_jump = true;
-		
-		if $CanvasLayer/MobileButtonReloadAmmo.is_pressed():
-			mobile_reload_ammo = true;
 
 func _on_area_entered(area):
 	if area.name.begins_with("stairs"):
