@@ -1,11 +1,8 @@
 name: "godot-ci export"
-on:
-  push:
-    branches:
-      - master
+on: push
 
 env:
-  GODOT_VERSION: 3.4.4
+  GODOT_VERSION: 3.5.1
   EXPORT_NAME: Dinos
 
 jobs:
@@ -13,7 +10,7 @@ jobs:
     name: Windows Export
     runs-on: ubuntu-20.04
     container:
-      image: barichello/godot-ci:3.4.4
+      image: barichello/godot-ci:3.5.1
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -37,7 +34,7 @@ jobs:
     name: Linux Export
     runs-on: ubuntu-20.04
     container:
-      image: barichello/godot-ci:3.4.4
+      image: barichello/godot-ci:3.5.1
     steps:
       - name: Checkout
         uses: actions/checkout@v2
