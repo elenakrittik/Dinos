@@ -59,14 +59,14 @@ func _on_Play_Button_pressed():
 	
 	$BackButton.visible = true;
 
-func get_button_position(bir: int, add: bool = true):
+func get_button_position(bir: float, add: bool = true):
 	var base = $Camera2D/Sprite.get_rect();
 	
-	var y: int = base.position.y + (((bir + 1) / 10) * 6);
+	var y: float = base.position.y + (((bir + 1) / 10) * 6);
 	
 	while (bir / 10) >= 1:
 		bir -= 10;
-	var x: int = base.position.x + ((bir + 1) * 32);
+	var x: float = base.position.x + ((bir + 1) * 32);
 	
 	if add:
 		y += 64;
