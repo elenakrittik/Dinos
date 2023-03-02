@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/plugin-icon.png-9027342efc8fc87c5ca995c8f6c36f5a.stex"
+path="res://.import/mobile_button_shoot.png-79e5ae8294f6add9706e47b30554f266.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/time-tracker/plugin-icon.png"
-dest_files=[ "res://.import/plugin-icon.png-9027342efc8fc87c5ca995c8f6c36f5a.stex" ]
+source_file="res://assets/UI/mobile_button_shoot.png"
+dest_files=[ "res://.import/mobile_button_shoot.png-79e5ae8294f6add9706e47b30554f266.stex" ]
 
 [params]
 

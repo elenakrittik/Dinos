@@ -20,13 +20,15 @@ var mobile_joystick_texture = preload("res://assets/UI/mobile_joystick_circle.pn
 var mobile_joystick_circle_texture = preload("res://assets/UI/mobile_joystick_circle_small.png");
 var mobile_button_jump_texture = preload("res://assets/UI/mobile_button_jump.png");
 var mobile_button_reload_ammo_texture = preload("res://assets/UI/mobile_button_reload_ammo.png");
+var mobile_button_shoot_texture = preload("res://assets/UI/mobile_button_shoot.png");
 var maporigin: Vector2;
 var mobile_joystick: TouchScreenButton;
 var mobile_joystick_circle: Sprite;
 var mobile_button_jump: TouchScreenButton;
 var mobile_button_reload_ammo: TouchScreenButton;
-var IS_MOBILE: bool = OS.get_name() == "Android";
-var IS_DESKTOP: bool = OS.get_name() in ["Windows", "X11"]
+var mobile_button_shoot: TouchScreenButton;
+var IS_MOBILE: bool = true # OS.get_name() == "Android";
+var IS_DESKTOP: bool = false # OS.get_name() in ["Windows", "X11"];
 var mobile_movement: Vector2;
 var mobile_jump: bool = false;
 var mobile_reload_ammo: bool = false;
@@ -73,10 +75,16 @@ func _ready():
 		mobile_button_reload_ammo.normal = mobile_button_reload_ammo_texture;
 		mobile_button_reload_ammo.position = Vector2(675, 250);
 		
+		mobile_button_shoot = TouchScreenButton.new();
+		mobile_button_shoot.name = "MobileButtonShoot";
+		mobile_button_shoot.normal = mobile_button_shoot_texture;
+		mobile_button_shoot.position = Vector2(160, 90);
+		
 		$CanvasLayer.add_child(mobile_joystick);
 		$CanvasLayer.add_child(mobile_joystick_circle);
 		$CanvasLayer.add_child(mobile_button_jump);
 		$CanvasLayer.add_child(mobile_button_reload_ammo);
+		$CanvasLayer.add_child(mobile_button_shoot);
 
 func _process(_delta):
 	if health == 0:
@@ -241,6 +249,12 @@ func _input(event):
 		if $CanvasLayer/MobileButtonReloadAmmo.is_pressed():
 			mobile_reload_ammo = true;
 			return;
+		
+		if $CanvasLayer/MobileButtonShoot.is_pressed():
+			mobile_shoot = true;
+			return;
+		else:
+			mobile_shoot = false;
 		
 		if $CanvasLayer/MobileJoystick.is_pressed():
 			# TODO: Prefer dynamic calculation

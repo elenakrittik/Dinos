@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/akashi.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/PlayerCamera.gd" type="Script" id=2]
 [ext_resource path="res://assets/BackgroundEarth.png" type="Texture" id=3]
 [ext_resource path="res://scenes/Dynamic/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/UI/mobile_button_reload_ammo.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -51,7 +50,3 @@ margin_right = 566.0
 margin_bottom = -35.0
 custom_fonts/normal_font = SubResource( 2 )
 text = "Health: 100"
-
-[node name="TouchScreenButton" type="TouchScreenButton" parent="Player/CanvasLayer"]
-position = Vector2( 675, 250 )
-normal = ExtResource( 5 )

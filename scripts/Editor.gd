@@ -326,35 +326,35 @@ func place_block(obj: Dictionary, calc: bool = true):
 		match obj['type']:
 			"earth":
 				tile.texture = earthtex;
-				tile.name = "earth_%s";
+				tile.name = "earth_%s" % tiles.size();
 			"earth1":
 				tile.texture = earth1tex;
-				tile.name = "earth1_%s";
+				tile.name = "earth1_%s" % tiles.size();
 			"explosivecan":
 				tile.texture = explosivecantex;
-				tile.name = "explosivecan_%s";
+				tile.name = "explosivecan_%s" % tiles.size();
 			"explosivecanbroken":
 				tile.texture = explosivecanbrokentex;
-				tile.name = "explosivecanbroken_%s";
+				tile.name = "explosivecanbroken_%s" % tiles.size();
 			"stairs":
 				tile.texture = stairstex;
-				tile.name = "stairs_%s";
+				tile.name = "stairs_%s" % tiles.size();
 			"toxiccan":
 				tile.texture = toxiccantex;
-				tile.name = "toxiccan_%s";
+				tile.name = "toxiccan_%s" % tiles.size();
 			"toxiccanbroken":
 				tile.texture = toxiccanbrokentex;
-				tile.name = "toxiccanbroken_%s";
+				tile.name = "toxiccanbroken_%s" % tiles.size();
 			"spawnpoint":
 				tile.texture = spawnpointtex;
-				tile.name = "spawnpoint_%s";
+				tile.name = "spawnpoint_%s" % tiles.size();
 			"p2spawnpoint":
 				tile.texture = p2spawnpointtex;
-				tile.name = "p2spawnpoint_%s";
+				tile.name = "p2spawnpoint_%s" % tiles.size();
 			_:
 				return;
 		
-		tile.name = tile.name % tiles.size();
+		print(tile.name)
 		tile.z_index = -2;
 		
 		$Objects.add_child(tile);
