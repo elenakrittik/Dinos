@@ -1,2 +1,7 @@
 # Dinos
-2D multi- / single- player platformer-shooter game
+
+Celeste-like action-platformer multiplayer game.
+
+## Development
+
+Game is built against Godot 4.1.1 and whatever the latest Rust nightly is.
