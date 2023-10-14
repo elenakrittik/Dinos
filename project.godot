@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Dinos"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ldtk-importer/plugin.cfg")
 
 [rendering]
 
