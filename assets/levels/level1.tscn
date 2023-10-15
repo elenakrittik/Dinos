@@ -1589,7 +1589,7 @@ use_texture_padding = false
 25:18/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 25:18/0/physics_layer_0/angular_velocity = 0.0
 
-[sub_resource type="Image" id="Image_3jwvw"]
+[sub_resource type="Image" id="Image_c4yjr"]
 data = {
 "data": PackedByteArray(43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7, 43, 139, 7),
 "format": "RGB8",
@@ -1599,7 +1599,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_14gtc"]
-image = SubResource("Image_3jwvw")
+image = SubResource("Image_c4yjr")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kqg6x"]
 resource_name = "Main_Tiles"
