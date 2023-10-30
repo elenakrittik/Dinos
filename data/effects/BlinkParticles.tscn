@@ -1,0 +1,248 @@
+[gd_scene load_steps=8 format=3 uid="uid://dohd3dtf403av"]
+
+[ext_resource type="Script" path="res://data/effects/PlexGPUParticles2D.gd" id="1_h6mdq"]
+[ext_resource type="PackedScene" uid="uid://2wi3xbkqmyt8" path="res://data/effects/BlinkParticle.tscn" id="2_gro5w"]
+[ext_resource type="Texture2D" uid="uid://cjuxaiw0t0w32" path="res://assets/tilesets/particles.png" id="3_vimih"]
+
+[sub_resource type="Curve" id="Curve_ld7v6"]
+max_value = 2.0
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rvcst"]
+curve = SubResource("Curve_ld7v6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_emxt8"]
+lifetime_randomness = 0.8
+emission_shape = 3
+emission_box_extents = Vector3(8, 8, 1)
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 5.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.8
+scale_max = 1.4
+scale_curve = SubResource("CurveTexture_rvcst")
+color = Color(0.541176, 0.694118, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k3ev"]
+atlas = ExtResource("3_vimih")
+region = Rect2(1, 1, 1, 1)
+
+[node name="BlinkParticles" type="Node2D"]
+script = ExtResource("1_h6mdq")
+one_shot = true
+amount = 30
+particles = "res://data/effects/BlinkParticle.tscn"
+
+[node name="BlinkParticle0" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle1" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle2" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle3" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle4" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle5" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle6" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle7" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle8" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle9" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle10" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle11" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle12" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle13" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle14" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle15" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle16" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle17" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle18" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle19" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle20" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle21" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle22" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle23" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle24" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle25" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle26" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle27" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle28" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true
+
+[node name="BlinkParticle29" type="GPUParticles2D" parent="." instance=ExtResource("2_gro5w")]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5
+one_shot = true

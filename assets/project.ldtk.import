@@ -2,7 +2,7 @@
 
 importer="ldtk.import"
 type="PackedScene"
-uid="uid://cnbvaqnhesqfl"
+uid="uid://dmkf5flvah4qi"
 path="res://.godot/imported/project.ldtk-061abca17d758620bd237925967ec001.scn"
 
 [deps]
@@ -25,7 +25,7 @@ Entity=""
 use_entity_placeholders=false
 Post Import=""
 tileset_post_import=""
-entities_post_import=""
+entities_post_import="res://addons/ldtk-importer/post-import/entity-template.gd"
 level_post_import=""
 world_post_import=""
 Debug=""

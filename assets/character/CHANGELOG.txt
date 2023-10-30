@@ -1,0 +1,7 @@
+CHANGE LOG:
+
+1-1:
+
+- Added attack animation
+- Added charge animation
+- Staffs are now 16x16 px instead of 14x16

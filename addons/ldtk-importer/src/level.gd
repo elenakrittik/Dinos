@@ -13,12 +13,12 @@ static func build_levels(
 		definitions: Dictionary,
 		tilesets: Dictionary,
 		base_dir: String
-) -> Array[LDTKLevel]:
+) -> Array:
 
 	base_directory = base_dir
-	var levels : Array[LDTKLevel] = []
+	var levels := []
 
-	# Calculate Level Positions
+	# Calculate Level Positions (for Linear layouts)
 	var level_positions : Array
 	match world_data.worldLayout:
 		"LinearHorizontal":
@@ -39,9 +39,7 @@ static func build_levels(
 		_:
 			printerr("World Layout not supported: ", world_data.worldLayout)
 
-	var external_levels = false
-	if world_data.has('externalLevels'):
-		external_levels = world_data.externalLevels
+	var external_levels = world_data.externalLevels
 
 	# Create Levels
 	for level_index in range(world_data.levels.size()):

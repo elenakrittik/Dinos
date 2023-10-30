@@ -30,11 +30,10 @@ static func start_time():
 	print("-- LDTK: Start Import --")
 
 static func log_time(message: String):
-	if options.verbose_output:
-		var time = Time.get_ticks_msec()
-		var time_log = time - time_last
-		time_last = time
-		print("%s :: %sms" % [message, time_log])
+	var time = Time.get_ticks_msec()
+	var time_log = time - time_last
+	time_last = time
+	print("%s :: %sms" % [message, time_log])
 
 static func finish_time():
 	var time = Time.get_ticks_msec()
@@ -68,10 +67,13 @@ static func check_version(version: String, latest_version: String) -> bool:
 			file_version = LDTK_VERSION.FUTURE
 	return true
 
-static func recursive_set_owner(node: Node, owner: Node):
+static func recursive_set_owner(node: Node, owner: Node, root: Node):
+	if node.owner != root and node.owner != null:
+		return
+
 	node.set_owner(owner)
 	for child in node.get_children():
-		recursive_set_owner(child, owner)
+		recursive_set_owner(child, owner, root)
 
 ### References
 static var tilemap_refs := {}
@@ -134,7 +136,6 @@ static func clean_references() -> void:
 	instance_refs.clear()
 	unresolved_refs.clear()
 
-static func clean_resolvers() -> void:
 	for resolver in path_resolvers:
 		resolver.free()
 	path_resolvers.clear()

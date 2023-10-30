@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://2wi3xbkqmyt8"]
+
+[ext_resource type="Texture2D" uid="uid://cjuxaiw0t0w32" path="res://assets/tilesets/particles.png" id="1_rchn3"]
+
+[sub_resource type="Curve" id="Curve_ld7v6"]
+max_value = 2.0
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rvcst"]
+curve = SubResource("Curve_ld7v6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_emxt8"]
+lifetime_randomness = 0.8
+emission_shape = 3
+emission_box_extents = Vector3(8, 8, 1)
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 5.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.8
+scale_max = 1.4
+scale_curve = SubResource("CurveTexture_rvcst")
+color = Color(0.541176, 0.694118, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k3ev"]
+atlas = ExtResource("1_rchn3")
+region = Rect2(1, 1, 1, 1)
+
+[node name="BlinkParticle" type="GPUParticles2D"]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_emxt8")
+texture = SubResource("AtlasTexture_2k3ev")
+lifetime = 1.5

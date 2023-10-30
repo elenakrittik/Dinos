@@ -204,14 +204,15 @@ static func create_tile_layer(
 				# Create full set of alternative tiles for this tile
 				for i in range(1,4):
 					var new_tile = tile_source.create_alternative_tile(tile_grid, i)
-					TileUtil.copy_and_modify_tile_data(
-						tile_source.get_tile_data(tile_grid, new_tile), 
-						tile_source.get_tile_data(tile_grid, 0),
-						tilemap.tile_set.get_physics_layers_count(),
-						tilemap.tile_set.get_navigation_layers_count(),
-						tilemap.tile_set.get_occlusion_layers_count(),
-						i
-					)
+					var tile_data = tile_source.get_tile_data(tile_grid, new_tile)
+					match i:
+						1: # Flip X
+							tile_data.set_flip_h(true)
+						2: # Flip Y
+							tile_data.set_flip_v(true)
+						3: # Flip Both
+							tile_data.set_flip_h(true)
+							tile_data.set_flip_v(true)
 
 			if (tile_source.has_alternative_tile(tile_grid, tile_flip)):
 				alternative_tile = tile_flip

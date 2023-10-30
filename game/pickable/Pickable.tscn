@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cckmx8wkl4jvj"]
+
+[ext_resource type="Script" path="res://game/pickable/Pickable.gd" id="1_asxix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ehnj"]
+
+[node name="Pickable" type="Area2D"]
+script = ExtResource("1_asxix")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7ehnj")

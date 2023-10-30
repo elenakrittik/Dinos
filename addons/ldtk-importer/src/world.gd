@@ -58,7 +58,7 @@ static func create_world(name: String, levels: Array) -> LDTKWorld:
 			level = PostImport.run(level, Util.options.level_post_import)
 
 		for node in level.get_children():
-			Util.recursive_set_owner(node, world)
+			Util.recursive_set_owner(node, world, null)
 
 	world.rect.position = Vector2i(x1, y1)
 	world.rect.end = Vector2i(x2, y2)
@@ -69,37 +69,8 @@ static func create_world(name: String, levels: Array) -> LDTKWorld:
 			print("\n::POST-IMPORT WORLD: ", world.name)
 		world = PostImport.run(world, Util.options.world_post_import)
 
+	# Resolve references
+	Util.resolve_references()
+	Util.clean_references()
+
 	return world
-
-static func create_multi_world(
-	name: String,
-	worlds: Array[LDTKWorld]
-) -> LDTKWorld:
-
-	var multi_world = LDTKWorld.new()
-	multi_world.name = name
-
-	for world in worlds:
-		multi_world.add_child(world)
-		Util.recursive_set_owner(world, multi_world)
-
-	return multi_world
-
-static func save_worlds(worlds: Array[LDTKWorld], base_dir: String) -> Array:
-	var gen_files := []
-	var save_path = base_dir + 'worlds/'
-	var directory = DirAccess.open(base_dir)
-	directory.make_dir_recursive(save_path)
-
-	for world in worlds:
-		var packed_world = PackedScene.new()
-		packed_world.pack(world)
-
-		var file_name = world.name
-		var file_path = "%s%s.%s" % [save_path, file_name, "tscn"]
-
-		var err = ResourceSaver.save(packed_world, file_path)
-		if err == OK:
-			gen_files.push_back(file_path)
-
-	return gen_files
